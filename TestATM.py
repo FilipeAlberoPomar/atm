@@ -22,20 +22,17 @@ class TestATM(unittest.TestCase):
     def test_input_zero(self):    
         self.assertEqual(self.atm.withdraw(-1), -1)
 
-    def test_10(self):
-        self.assertEqual(self.atm.withdraw(10), "£20x0 £10x1")
-
-    def test_20(self):
-        self.assertEqual(self.atm.withdraw(20), "£20x1 £10x0")
-
-    def test_30(self):
-        self.assertEqual(self.atm.withdraw(30), "£20x1 £10x1")
-
-    def test_40(self):
-        self.assertEqual(self.atm.withdraw(40), "£20x2 £10x0")
-
-    def test_50(self):
-        self.assertEqual(self.atm.withdraw(50), "£20x2 £10x1")
+    def test_all_notes_available(self):
+        self.assertEqual(self.atm.withdraw(100), "£50x2 £20x0 £10x0")
+        self.assertEqual(self.atm.withdraw(90), "£50x1 £20x2 £10x0")
+        self.assertEqual(self.atm.withdraw(80), "£50x1 £20x1 £10x1")
+        self.assertEqual(self.atm.withdraw(70), "£50x1 £20x1 £10x0")
+        self.assertEqual(self.atm.withdraw(60), "£50x1 £20x0 £10x1")
+        self.assertEqual(self.atm.withdraw(50), "£50x1 £20x0 £10x0")
+        self.assertEqual(self.atm.withdraw(40), "£50x0 £20x2 £10x0")
+        self.assertEqual(self.atm.withdraw(30), "£50x0 £20x1 £10x1")
+        self.assertEqual(self.atm.withdraw(20), "£50x0 £20x1 £10x0")
+        self.assertEqual(self.atm.withdraw(10), "£50x0 £20x0 £10x1")
 
 if __name__ == '__main__':
     unittest.main()
