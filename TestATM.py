@@ -22,7 +22,7 @@ class TestATM(unittest.TestCase):
     def test_input_zero(self):    
         self.assertEqual(self.atm.withdraw(-1), -1)
 
-    def test_all_notes_available(self):
+    def test_with_all_notes_available(self):
         self.assertEqual(self.atm.withdraw(100), "£50x2 £20x0 £10x0")
         self.assertEqual(self.atm.withdraw(90), "£50x1 £20x2 £10x0")
         self.assertEqual(self.atm.withdraw(80), "£50x1 £20x1 £10x1")
