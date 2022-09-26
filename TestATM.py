@@ -14,13 +14,13 @@ class TestATM(unittest.TestCase):
         return 0
 
     def test_input_non_integer(self):
-        self.assertEqual(self.atm.withdraw("blah"), -1)
+        self.assertEqual(self.atm.withdraw("🌝"), -1)
 
     def test_input_negative(self):
-        self.assertEqual(self.atm.withdraw(0), -1)
+        self.assertEqual(self.atm.withdraw(0), -2)
     
     def test_input_zero(self):    
-        self.assertEqual(self.atm.withdraw(-1), -1)
+        self.assertEqual(self.atm.withdraw(-1), -2)
 
     def test_with_all_notes_available(self):
         self.assertEqual(self.atm.withdraw(100), "£50x2 £20x0 £10x0")

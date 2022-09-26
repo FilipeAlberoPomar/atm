@@ -15,7 +15,7 @@ class ATM:
             return -1
 
         if (amount <= 0):
-            return -1
+            return -2
 
         # Number of 50s needed
         fifties = int(amount/50)
